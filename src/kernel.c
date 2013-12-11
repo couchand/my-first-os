@@ -116,5 +116,8 @@ void kernel_main()
     terminal_initialize();
     /* Since there is no support for newlines in terminal_putchar yet, \n will
        produce some VGA specific character instead. This is normal. */
-    terminal_writestring("Hello, kernel World!\n");
+
+    for ( size_t i = 0; i < 16; ++i )
+        for ( size_t j = 0; j < 16; ++j )
+            terminal_putentryat('x', make_color(i, j), i, j);
 }
